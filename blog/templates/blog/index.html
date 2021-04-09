@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} Blog {% endblock %}
+
+{% block content %}
+  <h1>Welcome to my blog</h1>
+
+  
+  {% if blog_posts %}
+  
+  {% for user in user_list %} 
+  <div class="divider"></div>
+  <div class="section">
+    <h5>{{blog_posts.body}}</h5>
+    <p>{{blog_posts.created}}</p>
+    <p>{{blog_posts.body}}</p>
+  </div>
+  
+  {% endfor %}
+  
+  {% else %}
+  
+    <div class="divider"></div>
+    <h5>No blog posts yet.</h5>
+
+  {% endif %}
+
+  <div class="divider"></div>
+
+{% endblock %}
