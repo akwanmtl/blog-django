@@ -26,11 +26,11 @@
       <p class="right-align date">Written: {{post.created}}</p>
       {% tz_detect %}
       {% else %}
-      <p class="right-align date">Modified: {{post.modified}}</p>
+      <p class="right-align date">Modified: {{post.modified}} Created: {{post.created}} </p>
       {% tz_detect %}
       {% endifequal  %}
     {% else %}
-    <p class="right-align date">Modified: {{post.modified}} Created: {{post.created}}  </p>
+    <p class="right-align date">Modified: {{post.modified}} </p>
     {% tz_detect %}
     {% endifequal  %}
   </div>
