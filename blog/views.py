@@ -8,18 +8,20 @@ from django.views.generic import ListView
 
 # Create your views here.
 
-# def index(request):
-#   return render(request, 'blog/index.html', {
-#     'header' : 'Hello this is a blog'
-#   })
+def index(request):
 
-class PostListView(ListView):
-  model = Post
-  template_name = 'blog/index.html'
+  post_list = Post.objects.all().order_by('id')
+  return render(request, 'blog/index.html', {
+    'post_list' : post_list
+  })
 
-  def get_context_data(self, **kwargs):
-    context = super(PostListView, self).get_context_data(**kwargs)
-    return context
+# class PostListView(ListView):
+#   model = Post
+#   template_name = 'blog/index.html'
+
+#   def get_context_data(self, **kwargs):
+#     context = super(PostListView, self).get_context_data(**kwargs)
+#     return context
 
 def add(request):
 
