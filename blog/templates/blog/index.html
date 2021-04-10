@@ -1,19 +1,29 @@
 {% extends 'blog/base.html' %}
 
+{% load tz_detect %}
 {% block title %} Blog {% endblock %}
 
 {% block content %}
   <h1>Welcome to my blog</h1>
 
   
-  {% if blog_posts %}
+  {% if post_list %}
   
-  {% for user in user_list %} 
-  <div class="divider"></div>
+  {% for post in post_list reversed %} 
   <div class="section">
-    <h5>{{blog_posts.body}}</h5>
-    <p>{{blog_posts.created}}</p>
-    <p>{{blog_posts.body}}</p>
+    <div class="headline">
+      <h5>{{post.title}}</h5>
+      <div class="right-align">
+        <a class="waves-effect waves-light btn icon btn-floating"><i class="material-icons">edit</i></a>
+        <a class="waves-effect waves-light btn icon btn-floating"><i class="material-icons">delete</i></a>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <p class="post">{{post.body}}</p>
+    
+    <p class="right-align">{{post.created}}</p>
+    {% tz_detect %}
+    <div class="divider"></div>
   </div>
   
   {% endfor %}
@@ -22,9 +32,9 @@
   
     <div class="divider"></div>
     <h5>No blog posts yet.</h5>
+    <div class="divider"></div>
 
   {% endif %}
 
-  <div class="divider"></div>
 
 {% endblock %}

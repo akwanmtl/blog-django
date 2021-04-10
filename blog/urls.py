@@ -1,8 +1,9 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 
 from . import views
 
+app_name = 'blog'
 urlpatterns = [
-  url(r'^$', views.index, name='index'),
-  url(r'^add/$', views.add, name='add')
+  url(r'^$', views.PostListView.as_view(), name='index'),
+  url(r'^add/$', views.add, name='add'),
 ]
