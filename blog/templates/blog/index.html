@@ -4,37 +4,53 @@
 {% block title %} Blog {% endblock %}
 
 {% block content %}
-  <h1>Welcome to my blog</h1>
+  <h1 class="center-align">Welcome To My Blog</h1>
 
   
   {% if post_list %}
   
   {% for post in post_list reversed %} 
-  <div class="section">
+  <div class="section blue lighten-5">
     <div class="headline">
-      <h5>{{post.title}}</h5>
+      <h4>{{post.title|title}}</h4>
       <div class="right-align">
-        <a class="waves-effect waves-light btn icon btn-floating"><i class="material-icons">edit</i></a>
-        <a class="waves-effect waves-light btn icon btn-floating"><i class="material-icons">delete</i></a>
+        <a class="waves-effect waves-light btn icon btn-floating edit-post blue darken-1 scale-transition scale-out" data-id={{post.id}}><i class="material-icons">edit</i></a>
+        <a class="waves-effect waves-light btn icon btn-floating delete-post blue darken-1 scale-transition scale-out" data-id={{post.id}}><i class="material-icons">delete</i></a>
       </div>
     </div>
     <div class="divider"></div>
-    <p class="post">{{post.body}}</p>
-    
-    <p class="right-align">{{post.created}}</p>
+    <pre class="post">{{post.body|linebreaks}}</pre>
+
+    {% ifequal post.created.date post.modified.date %}
+      {% ifequal post.created.time post.modified.time %}
+      <p class="right-align date">Written: {{post.created}}</p>
+      {% else %}
+      <p class="right-align date">Modified: {{post.modified.date}}</p>
+      {% tz_detect %}
+      {% endifequal  %}
+    {% else %}
+    <p class="right-align date">Modified: {{post.modified.date}}</p>
     {% tz_detect %}
-    <div class="divider"></div>
+    {% endifequal  %}
   </div>
   
   {% endfor %}
   
   {% else %}
-  
-    <div class="divider"></div>
-    <h5>No blog posts yet.</h5>
-    <div class="divider"></div>
-
+  <div class="section blue lighten-5 no-post">
+    <h5 class="center-align">No blog posts yet.</h5>
+  </div>
   {% endif %}
 
+
+  <div id="confirm-delete-modal" class="modal">
+    <div class="modal-content">
+      <h4>Do you want to delete post?</h4>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close waves-effect waves-green btn-flat" id="delete-yes">Yes</a>
+      <a class="modal-close waves-effect waves-green btn-flat">No</a>
+    </div>
+  </div>
 
 {% endblock %}

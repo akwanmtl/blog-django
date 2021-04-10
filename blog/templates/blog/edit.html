@@ -1,13 +1,13 @@
-{% extends 'blog/base_alt.html' %}
+{% extends 'blog/base.html' %}
 {% load materializecss %}
 
 {% block title %} Blog {% endblock %}
 
 {% block content %}
-  <h3 class="center-align">Add A New Post</h3>
+  <h3 class="center-align">Edit Post</h3>
   
   <div class="row blue lighten-5">
-    <form class="col s12" method="post" action="{% url 'blog:add' %}">
+    <form class="col s12" method="post" action="">
       
       {% csrf_token %}
       {{ form|materializecss}}
