@@ -40,6 +40,8 @@ To run the application, use the following command:
 ```
 (env)$ python manage.py runserver
 ```
+The app will run locally on 127.0.0.1:8000
+
 You can add a new post by clicking on the Add Post. By clicking on Edit Posts, you see edit and delete button next to each post. 
 
 
