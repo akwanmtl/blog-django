@@ -22,7 +22,7 @@
     <pre class="post">{{post.body|linebreaks}}</pre>
 
     {% ifequal post.created.date post.modified.date %}
-      {% ifequal post.created.time post.modified.time %}
+      {% ifequal post.created post.modified %}
       <p class="right-align date">Written: {{post.created}}</p>
       {% tz_detect %}
       {% else %}
