@@ -24,6 +24,7 @@
     {% ifequal post.created.date post.modified.date %}
       {% ifequal post.created.time post.modified.time %}
       <p class="right-align date">Written: {{post.created}}</p>
+      {% tz_detect %}
       {% else %}
       <p class="right-align date">Modified: {{post.modified.date}}</p>
       {% tz_detect %}
