@@ -26,9 +26,10 @@ class Post(models.Model):
 
   def save(self, *args, **kwargs):
     """ Add created_at and updated_at timestamps. """
+    
+    self.modified = timezone.now()
     if not self.id:
         self.created = timezone.now()
 
-    self.modified = timezone.now()
 
     return super(Post, self).save(*args, **kwargs)

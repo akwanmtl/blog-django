@@ -14,22 +14,18 @@
   <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-  <nav class="">
-    <div class="nav-wrapper  indigo darken-3">
+  <nav>
+    <div class="nav-wrapper indigo darken-3">
       <a href="{% url 'blog:index' %}" class="brand-logo left">Blog</a>
       <a href="#" data-target="mobile-nav" class="right sidenav-trigger hide-on-med-and-up"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-small-and-down">
         <li><a href="{% url 'blog:index' %}">Home</a></li>
-        <li><a href="{% url 'blog:add' %}">Add Post</a></li>
-        <li><a class="edit-btn">Edit Posts</a></li>
       </ul>
     </div>
   </nav>
 
   <ul class="sidenav" id="mobile-nav">
     <li><a href="{% url 'blog:index' %}">Home</a></li>
-    <li><a href="{% url 'blog:add' %}">Add Post</a></li>
-    <li><a class="edit-btn">Edit Posts</a></li>
   </ul>
   <div class="container">
     {% block content %}
