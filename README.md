@@ -5,6 +5,7 @@ The simple blog application is built using Django and Python as the backend serv
 This application allows you to add a new post, edit existing posts and delete posts.
 
 Link to the Github repository: https://github.com/akwanmtl/blog-django
+Link to deployed application: https://safe-oasis-30261.herokuapp.com/
 
 ## Table of Contents
 
@@ -42,7 +43,7 @@ To run the application, use the following command:
 You can add a new post by clicking on the Add Post. By clicking on Edit Posts, you see edit and delete button next to each post. 
 
 
-[![Demo Website](Blog.gif)] 
+[![Demo Website](Blog.gif)](https://safe-oasis-30261.herokuapp.com/) 
 
 ## Credits
 
