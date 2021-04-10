@@ -19,9 +19,6 @@ class PostListView(ListView):
 
   def get_context_data(self, **kwargs):
     context = super(PostListView, self).get_context_data(**kwargs)
-    # print(context)
-    # context['created'] = timezone.localtime(context['created'])
-
     return context
 
 def add(request):
