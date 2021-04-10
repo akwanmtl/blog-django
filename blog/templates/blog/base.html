@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   {% load static %}
@@ -8,25 +9,27 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+  <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+  
   <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
- 
   <nav>
     <div class="nav-wrapper">
-      <a href="{% url 'index' %}" class="brand-logo">Blog</a>
+      <a href="{% url 'blog:index' %}" class="brand-logo">Blog</a>
       <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="{% url 'index' %}">Home</a></li>
-        <li><a href="{% url 'add' %}">Add Post</a></li>
+        <li><a href="{% url 'blog:index' %}">Home</a></li>
+        <li><a href="{% url 'blog:add' %}">Add Post</a></li>
+        <li><a class="edit-btn">Edit Blog</a></li>
       </ul>
     </div>
   </nav>
 
   <ul class="sidenav" id="mobile-nav">
-    <li><a href="{% url 'index' %}">Home</a></li>
-    <li><a href="{% url 'add' %}">Add Post</a></li>
+    <li><a href="{% url 'blog:index' %}">Home</a></li>
+    <li><a href="{% url 'blog:add' %}">Add Post</a></li>
+    <li><a class="edit-btn">Edit Blog</a></li>
   </ul>
   <div class="container">
     {% block content %}

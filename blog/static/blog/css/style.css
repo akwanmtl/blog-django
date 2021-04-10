@@ -1,0 +1,17 @@
+.icon {
+  visibility: hidden;
+}
+
+.headline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post {
+  min-height: 100px;
+  word-wrap: break-word;
+}
+
+.edit-btn {
+  cursor: pointer;
+}
